@@ -1,0 +1,36 @@
+{
+  "name": "mysqlws",
+  "version": "0.1.0",
+  "description": "A Websocket wrapper around mysqljs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meiamsome/mysqlws.git"
+  },
+  "keywords": [
+    "mysql",
+    "websocket",
+    "front-end"
+  ],
+  "author": "Oliver Wright (meiamsome)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meiamsome/mysqlws/issues"
+  },
+  "homepage": "https://github.com/meiamsome/mysqlws#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jasmine": "^2.4.2",
+    "gulp-jasmine-browser": "^1.8.1",
+    "gulp-util": "^3.0.8",
+    "jasmine-node": "^1.14.5",
+    "simple-headless-chrome": "^2.5.10"
+  },
+  "dependencies": {
+    "mysql": "github:mysqljs/mysql",
+    "ws": "^3.0.0"
+  }
+}
