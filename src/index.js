@@ -6,11 +6,13 @@
 
   var has_require = typeof require !== 'undefined';
 
-  if(has_require) {
+  if(typeof window !== 'undefined' && typeof window.WebSocket !== 'undefined') {
+    var WebSocket = window.WebSocket;
+  } else if(has_require) {
     var WebSocket = require('ws');
     var Server = require('./server');
   } else {
-    var WebSocket = root.WebSocket;
+    throw "Could not resolve WebSocket."
   }
   // Proxy object for a connection
   var ConnectionProxy = function(proxy_id, parent) {
