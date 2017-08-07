@@ -77,6 +77,8 @@
     var objects = {};
     var id = 0;
     var debug = false;
+    var initialized = false;
+    var self = this;
 
     socket.onmessage = function(message_ev) {
       var message = JSON.parse(message_ev.data);
@@ -84,7 +86,18 @@
       callbacks[message.id](message);
     }
 
-    socket.onopen = open_callback;
+    socket.onopen = function() {
+      initialized = true;
+      open_callback(null, self);
+    }
+
+    socket.onerror = function(err) {
+      if(!initialized) {
+        open_callback(err);
+      } else {
+        console.log("Error in mysqlws: ", err);
+      }
+    }
 
     this._send = function(packet, callback) {
       packet.id = id++;
